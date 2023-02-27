@@ -8,11 +8,18 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      shairport_sync_branch:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'Shairport Sync git ref'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: 'origin/docker'
+        # Input has to be provided for the workflow to run
+        required: true
+      nqptp_branch:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'NQPTP git ref'
+        # Default value if no value is explicitly provided
+        default: 'development'
         # Input has to be provided for the workflow to run
         required: true
 
@@ -27,7 +34,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         repository: 'yubiuser/shairport-sync'
-        ref: 'docker'
+        ref: '${{ github.event.inputs.shairport_sync_branch }}'
       
     # https://github.com/docker/setup-qemu-action
     - name: Set up QEMU
@@ -50,8 +57,8 @@ jobs:
         context: .
         file: ./docker/Dockerfile
         build-args: |
-          SHAIRPORT_SYNC_BRANCH=origin/docker
-          NQPTP_BRANCH=development
+          SHAIRPORT_SYNC_BRANCH=${{ github.event.inputs.shairport_sync_branch }}
+          NQPTP_BRANCH=${{ github.event.inputs.nqptp_branch }}
         platforms: linux/amd64
         push: false
         tags: a1ex4/snapcast-shairpot-librespot:latest
