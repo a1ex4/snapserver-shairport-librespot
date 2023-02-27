@@ -48,6 +48,9 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: ./docker
+        build-args: |
+          SHAIRPORT_SYNC_BRANCH=origin/docker
+          NQPTP_BRANCH=development
         platforms: linux/amd64
         push: false
         tags: a1ex4/snapcast-shairpot-librespot:latest
