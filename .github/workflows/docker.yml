@@ -59,8 +59,8 @@ jobs:
         outputs: type=image,name=a1ex4/shairport-sync:latest
     
     - name: Print image
-        run: |
-          docker pull ls -a
+      run: |
+        docker pull ls -a
 
     - name: Checkout
         uses: actions/checkout@v3
