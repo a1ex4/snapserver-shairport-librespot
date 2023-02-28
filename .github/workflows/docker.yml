@@ -98,5 +98,6 @@ jobs:
         with:
           # context: .
           # file: ./Dockerfile
+          pull: false
           platforms: linux/amd64
           push: false
