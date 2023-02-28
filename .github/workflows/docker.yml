@@ -93,6 +93,10 @@ jobs:
       #     username: ${{ secrets.DOCKERHUB_USERNAME }}
       #     password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Print image
+        run: |
+          docker image ls -a
+
       - name: Build Snapserver image
         uses: docker/build-push-action@v4
         with:
