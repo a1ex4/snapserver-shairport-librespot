@@ -78,6 +78,9 @@ jobs:
           docker load --input /tmp/myimage.tar
           docker image ls -a
 
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -93,7 +96,7 @@ jobs:
       - name: Build Snapserver image
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: ./Dockerfile
+          # context: .
+          # file: ./Dockerfile
           platforms: linux/amd64
           push: false
