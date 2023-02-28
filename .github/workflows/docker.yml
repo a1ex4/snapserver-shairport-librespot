@@ -54,7 +54,7 @@ jobs:
           SHAIRPORT_SYNC_BRANCH=${{ github.event.inputs.shairport_sync_branch }}
           NQPTP_BRANCH=${{ github.event.inputs.nqptp_branch }}
         platforms: linux/amd64
-        tags: a1ex4/shairpot-sync:latest
+        tags: a1ex4/shairport-sync:latest
         outputs: type=docker,dest=/tmp/myimage.tar
 
     - name: Upload artifact
