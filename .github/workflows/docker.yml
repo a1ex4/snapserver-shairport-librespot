@@ -104,5 +104,5 @@ jobs:
           # file: ./Dockerfile
           pull: false
           load: true
-          platforms: linux/amd64
+          # platforms: linux/amd64
           push: false
