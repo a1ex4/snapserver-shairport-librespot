@@ -60,20 +60,20 @@ jobs:
     
     - name: Print image
       run: |
-        docker pull ls -a
+        docker image ls -a
 
     - name: Checkout
         uses: actions/checkout@v3
 
     - name: Build Snapserver image
-        uses: docker/build-push-action@v4
-        with:
-          # context: .
-          # file: ./Dockerfile
-          pull: false
-          load: true
-          platforms: linux/amd64
-          push: false
+      uses: docker/build-push-action@v4
+      with:
+        # context: .
+        # file: ./Dockerfile
+        pull: false
+        load: true
+        platforms: linux/amd64
+        push: false
 
     # - name: Upload artifact
     #   uses: actions/upload-artifact@v3
